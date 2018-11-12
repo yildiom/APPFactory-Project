@@ -1,0 +1,497 @@
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/variables";
+@import "./base/mixins";
+
+.container {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 75%;
+  max-width: 940px;
+}
+img {
+  @include responsive;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+h1 {
+  color: $h1-h2;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+// HEADER//
+body header {
+  background-color: $navy;
+  border-bottom: 6px solid #313745;
+  padding-bottom: 35px;
+  padding-top: 35px;
+
+  .hamburger div {
+    width: 27px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+    display: none;
+  }
+}
+header a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+header ul li {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "\e80a";
+    font-family: "fontello";
+    font-size: 20px;
+    left: 100%;
+    color: $dot;
+  }
+}
+header ul li:nth-child(1),
+header ul li:nth-last-of-type(1) {
+  &::before {
+    display: none;
+  }
+}
+header nav ul li a:not(.first) {
+  &:hover {
+    color: $pink;
+  }
+}
+nav > ul {
+  display: flex;
+
+  li {
+    padding: 0 17px 0 17px;
+  }
+  li:nth-child(2) {
+    margin-left: auto;
+  }
+}
+nav ul li {
+  .active {
+    color: $active;
+    &::before {
+      content: none;
+    }
+  }
+  .first {
+    font-size: 20px;
+    font-weight: 700;
+    &::before {
+      content: none;
+    }
+
+    b {
+      color: $active;
+      font-weight: 700;
+      padding-left: 2px;
+    }
+  }
+}
+
+// BANNER//
+main .banner {
+  background-color: $active;
+  border-bottom: 6px solid #e96769;
+  .container {
+    position: relative;
+    .left {
+      width: 17px;
+      height: 27px;
+      position: absolute;
+      background: url(../images/arrows.png);
+      top: 50%;
+    }
+    .right {
+      width: 17px;
+      height: 27px;
+      position: absolute;
+      background: url(../images/arrows.png) 17px 0;
+      top: 50%;
+      right: 0%;
+    }
+  }
+}
+
+// OUR SERVICES//
+main .our-services {
+  background-color: #f2f2f2;
+  border-bottom: 6px solid #fff;
+  padding-top: 65px;
+  .cols-3 {
+    @include make-col(3, 20px);
+  }
+  article.icon-pen::before,
+  article.icon-bulb::before,
+  article.icon-heart::before,
+  article.icon-phone::before,
+  article.icon-bubble::before,
+  article.icon-star::before {
+    font-size: 30px;
+    color: $h1-h2;
+    border: 2px solid;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 50%;
+    height: 25%;
+  }
+  h1 {
+    margin-bottom: 30px;
+  }
+  p {
+    color: $p;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 40px;
+  }
+  article {
+    display: flex;
+
+    h2 {
+      font-weight: 900;
+      font-size: 18px;
+      color: $h1-h2;
+      margin-bottom: 13px;
+    }
+    p {
+      color: $p;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 21.5px;
+      margin-bottom: 28px;
+      text-align: justify;
+    }
+  }
+}
+
+// PORTFOLIO//
+main .portfolio {
+  background-color: $navy;
+  padding-top: 65px;
+  padding-bottom: 40px;
+  color: $p;
+  border-bottom: 6px solid #313745;
+  h1 {
+    margin-bottom: 30px;
+  }
+  p {
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 18px;
+  }
+  ul {
+    display: flex;
+    margin-bottom: 25px;
+    a {
+      color: $p;
+      border: 1px solid;
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 12px;
+      font-weight: 400;
+      &:hover {
+        color: white;
+      }
+    }
+    .active {
+      color: white;
+    }
+  }
+}
+main .portfolio .cols-4 {
+  @include make-col(4, 20px);
+  a {
+    position: relative;
+    img {
+      border: 4px solid rgba(0, 0, 0, 0);
+    }
+  }
+  a:hover {
+    opacity: 0.7;
+    img {
+      border: 4px solid #b1bdbd;
+    }
+    &::before {
+      display: block;
+    }
+  }
+  a::before {
+    position: absolute;
+    content: "\e803";
+    font-family: "fontello";
+    font-size: 20px;
+    top: 40%;
+    left: 40%;
+    color: #ffff;
+    font-size: 60px;
+    display: none;
+  }
+}
+
+// ABOUT US//
+main .about-us {
+  padding-top: 65px;
+  padding-bottom: 50px;
+  background-color: #f2f2f2;
+  border-bottom: 6px solid #fff;
+  h1 {
+    margin-bottom: 30px;
+  }
+  p {
+    margin-bottom: 40px;
+    font-weight: 350;
+    font-size: 18px;
+    line-height: 30px;
+    color: $p;
+  }
+  h2 {
+    font-weight: 900;
+    font-size: 18px;
+    color: $h1-h2;
+    margin-bottom: 18px;
+    margin-top: 18px;
+  }
+  .cols-3 {
+    @include make-col(3, 20px);
+    p {
+      color: $p;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 21.5px;
+      margin-bottom: 28px;
+      text-align: justify;
+    }
+    ul {
+      display: flex;
+      a {
+        color: $p;
+        font-size: 13px;
+        border: 1px solid;
+        padding: 5px;
+        border-radius: 50%;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+// GET A QUOTE//
+main .get-a-quote {
+  background-color: $active;
+  color: #f0d8d9;
+  padding-top: 65px;
+  padding-bottom: 200px;
+  border-bottom: 6px solid #e96769;
+  h1 {
+    margin-bottom: 30px;
+    color: #f0d8d9;
+    font-size: 30px;
+    font-weight: 900;
+  }
+  p:nth-of-type(1) {
+    margin-bottom: 50px;
+    font-weight: 300;
+    line-height: 30px;
+    font-size: 18px;
+  }
+  .cols-2 {
+    @include make-col(2, 20px);
+
+    input[type="text"] {
+      width: 100%;
+      border: 0;
+      border-radius: 4px;
+      padding: 9px 0 13px 15px;
+      background-color: #d75650;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 400px;
+      color: #f0d8d9;
+      outline: none;
+    }
+    input::placeholder {
+      color: #f48d8e;
+    }
+    textarea {
+      resize: none;
+      width: 100%;
+      border: 0;
+      border-radius: 4px;
+      padding: 9px 0 13px 15px;
+      background-color: #d75650;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 400px;
+      color: #f48d8e;
+      height: 90%;
+      outline: none;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      color: #f0d8d9;
+      margin-bottom: 30px;
+      line-height: 22px;
+      text-align: justify;
+    }
+    a {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: #f0d8d9;
+      margin-bottom: 12px;
+      &:hover {
+        text-decoration: underline;
+        &::before {
+          background-color: $pink;
+          text-decoration: none;
+        }
+      }
+      &::before {
+        margin-right: 18px;
+      }
+    }
+  }
+}
+main .get-a-quote .cols-2 > :nth-child(n) {
+  width: 70%;
+}
+main .get-a-quote .cols-2 > :nth-child(2n) {
+  width: 27%;
+}
+
+// FOOTER//
+footer {
+  background-color: $navy;
+  color: $p;
+  padding: 21px 0 21px 0;
+  font-size: 12px;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    a {
+      color: $p;
+      font-size: 13px;
+      border: 1px solid;
+      padding: 5px;
+      border-radius: 50%;
+      margin-left: 8px;
+    }
+    li:nth-child(2) {
+      margin-left: auto;
+    }
+  }
+}
+
+// MEDIA QUERIES//
+
+@media screen and (max-width: 1000px) {
+  main .our-services article.icon-pen::before,
+  main .our-services article.icon-bulb::before,
+  main .our-services article.icon-heart::before,
+  main .our-services article.icon-phone::before,
+  main .our-services article.icon-bubble::before,
+  main .our-services article.icon-star::before {
+    font-size: 20px;
+    height: 15%;
+  }
+  main .our-services article p {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 915px) {
+  main .get-a-quote .cols-2 > :nth-child(n) {
+    width: 50%;
+  }
+  main .get-a-quote .cols-2 > :nth-child(2n) {
+    width: 40%;
+  }
+  main .portfolio .cols-4 {
+    @include make-col(3, 20px);
+  }
+}
+
+@media screen and (max-width: 790px) {
+  main .our-services article.icon-pen::before,
+  main .our-services article.icon-bulb::before,
+  main .our-services article.icon-heart::before,
+  main .our-services article.icon-phone::before,
+  main .our-services article.icon-bubble::before,
+  main .our-services article.icon-star::before {
+    padding: 5px;
+    height: 10%;
+  }
+}
+@media screen and (max-width: 736px) {
+  main .our-services .cols-3 {
+    @include make-col(2, 20px);
+  }
+  main .our-services article.icon-pen::before,
+  main .our-services article.icon-bulb::before,
+  main .our-services article.icon-heart::before,
+  main .our-services article.icon-phone::before,
+  main .our-services article.icon-bubble::before,
+  main .our-services article.icon-star::before {
+    padding: 10px;
+    height: 12%;
+  }
+  body header .container {
+    display: flex;
+  }
+  body header nav > ul li:not(:first-of-type) {
+    display: none;
+  }
+
+  header .container .hamburger div {
+    display: block;
+  }
+  header .container .hamburger {
+    margin-left: auto;
+  }
+  main .portfolio .cols-4 {
+    @include make-col(2, 20px);
+  }
+  main .about-us .cols-3 p {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 530px) {
+  main .our-services .cols-3 > *:nth-child(1n + 0) {
+    width: 100%;
+  }
+  main .about-us .cols-3 > *:nth-child(1n + 0) {
+    width: 100%;
+  }
+  main .get-a-quote .cols-2 > :nth-child(n) {
+    width: 100%;
+    margin-bottom: 200px;
+  }
+  main .get-a-quote .cols-2 h2 {
+    font-size: 18px;
+  }
+  main .get-a-quote .cols-2 div:nth-child(2) {
+    margin-bottom: 0;
+  }
+  main .portfolio ul a {
+    margin-right: 5px;
+  }
+}
